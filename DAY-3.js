@@ -3,25 +3,28 @@
     closures
      problem two -- To Be Or Not To Be --  
  */
-
-var expect = function (val) {
-  return {
-    toBe: function (value) {
-      if (val === value) {
-        return "value : true";
-      } else {
-        return "error: Not Equal";
+     var expect = function (val) {
+      function toBe(val2) {
+          if (val == val2) {
+              return true;
+          } else {
+              return "Not Equal";
+          }
       }
-    },
-    notToBe: function (value) {
-      if (val !== value) {
-        return "value : true";
-      } else {
-        return "error: Not Equal";
+  
+      function notToBe(val2) {
+          if (val == val2) {
+              return "Equal";
+          } else {
+              return true;
+          }
       }
-    },
+  
+      return { toBe, notToBe }; 
   };
-};
+  
+
+
 
 console.log(expect(5).toBe(5)); // "value: true"
 console.log(expect(5).toBe(null)); // "error: Not Equal"
