@@ -8,15 +8,16 @@
           if (val == val2) {
               return true;
           } else {
-              return "Not Equal";
+              throw new Error( "Not Equal");
           }
       }
   
       function notToBe(val2) {
-          if (val == val2) {
-              return "Equal";
+          if (val !== val2) {
+            return true;
+           
           } else {
-              return true;
+            throw new Error( "Equal");
           }
       }
   
